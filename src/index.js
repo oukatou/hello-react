@@ -3,8 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Todolist from './Todolist';
 import * as serviceWorker from './serviceWorker';
+import { AppContainer } from 'react-hot-loader';
 
-ReactDOM.render(<Todolist />, document.getElementById('root'));
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component></Component>
+        </AppContainer>,
+        document.getElementById('root')
+    )
+}
+render(Todolist)
+if (module.hot) {
+    module.hot.accept('./Todolist', () => { 
+            render(Todolist);
+    })
+}
+//ReactDOM.render(<Todolist />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
