@@ -8,7 +8,7 @@ class Todoitem extends Component{
     render(){
         const {content} = this.props
         return (
-            <li>{content}<span onClick={this.delete.bind(this)}>   ×</span></li>
+            <li>{ content }<span onClick = {this.delete.bind(this)}>   ×</span> </li>
         )
     }
 }

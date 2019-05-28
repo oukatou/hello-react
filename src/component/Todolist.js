@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Todoitem from './Todoitem'
+import Button from './Button/Button'
+import Input from './Input/Input'
 
 class Todolist extends Component {
   constructor(props){
@@ -29,22 +31,22 @@ class Todolist extends Component {
   }
   getTodoItems(){
       return  ( 
-        this.state.list.map((item, index)=>{
-          //return <li key={index}>{item} <span onClick={this.handleDelete.bind(this,index)}>×</span> </li>
-          return <Todoitem 
-                    key={index} 
-                    handleDelete={this.handleDelete.bind(this)} 
-                    content={item} index={index}
-                  />
+        this.state.list.map((content, index)=>{
+          let props={
+            handleDelete: this.handleDelete.bind(this),
+            content,
+            index
+          }
+          return <Todoitem key={index} {...props}/>
         })
         )
   }
   render() {
     return (
       <div className="container">
-          <input value={this.state.inputValue} onChange={this.handleInputChange.bind(this)}/>
-          <button onClick={this.add.bind(this)}>add</button>
-          <ul>
+          <Input onChange={this.handleInputChange.bind(this)} value={this.state.inputValue} />
+          <Button onClick={this.add.bind(this)} title='Add'/>
+          <ul className='ul'>
              {this.getTodoItems()}
           </ul>
       </div>

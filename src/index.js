@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Todolist from './Todolist';
+import './assets/css/index.css';
+import AppRouter from './Router';
 import * as serviceWorker from './serviceWorker';
 import { AppContainer } from 'react-hot-loader';
 
@@ -13,10 +13,10 @@ const render = Component => {
         document.getElementById('root')
     )
 }
-render(Todolist)
+render(AppRouter)
 if (module.hot) {
-    module.hot.accept('./Todolist', () => { 
-            render(Todolist);
+    module.hot.accept('./Router', () => { 
+            render(AppRouter);
     })
 }
 //ReactDOM.render(<Todolist />, document.getElementById('root'));
