@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+.emotion-0 {
+  line-height: 18px;
+  font-size: 0.8em;
+  padding: 4px 10px;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  outline: none;
+  cursor: pointer;
+  background-color: #afce31;
+  color: #fff;
+}
+
+<button
+  className="emotion-0"
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+>
+  <span>
+    test
+  </span>
+</button>
+`;

@@ -15,6 +15,6 @@ export default function stylesheet(props){
         } : {},
         ...props.isPressed ? {
             boxShadow: '0 0 0 2px #94b317'
-        } : {}
+        } : {},
     }
 }

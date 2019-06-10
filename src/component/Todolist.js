@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component,Suspense } from 'react';
 import Todoitem from './Todoitem'
-import Button from './Button/Button'
 import Input from './Input/Input'
 
 class Todolist extends Component {
@@ -42,10 +41,13 @@ class Todolist extends Component {
         )
   }
   render() {
+    const OtherComponent = React.lazy(() => import('./Button/Button'));
     return (
       <div className="container">
           <Input onChange={this.handleInputChange.bind(this)} value={this.state.inputValue} />
-          <Button onClick={this.add.bind(this)} title='Add'/>
+          <Suspense fallback={<div>Loading...</div>}>
+            <OtherComponent onClick={this.add.bind(this)} title='Add'/>
+          </Suspense>
           <ul className='ul'>
              {this.getTodoItems()}
           </ul>
