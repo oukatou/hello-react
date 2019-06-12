@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Todoitem/> render todoitem 1`] = `
+<li>
+  test1
+  <span
+    onClick={[Function]}
+  >
+       ×
+  </span>
+   
+</li>
+`;

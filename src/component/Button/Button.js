@@ -11,7 +11,9 @@ export default class Button extends Component{
             onMouseDown,
             onMouseUp,
             onMouseEnter,
-            onMouseLeave
+            onMouseLeave,
+            disabled,
+            width
         } = this.props
         
         return (
@@ -34,7 +36,7 @@ export default class Button extends Component{
                                 onMouseLeave={handleMouseLeave}
                                 onMouseUp={handleMouseUp}
                                 onMouseEnter={handleMouseEnter}
-                                className={css(stylesheet({isPressed,hasHover}))}>
+                                className={css(stylesheet({width, disabled,isPressed,hasHover}))}>
                             <span>{title}</span>
                         </button>
                 }
