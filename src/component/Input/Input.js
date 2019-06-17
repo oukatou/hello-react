@@ -15,7 +15,8 @@ export default class Input extends Component{
         let {
             placeholder,
             onChange,
-            value
+            value,
+            ...otherProps
         } = this.props
         return (
             <ControlBehavior>
@@ -31,6 +32,7 @@ export default class Input extends Component{
                                 value={value}
                                 placeholder={placeholder}
                                 ref={this.inputRef}
+                                {...otherProps}
                                 >
                         </input>
                 }

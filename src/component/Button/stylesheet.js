@@ -11,7 +11,7 @@ export default function stylesheet(props){
         cursor: 'pointer',
         backgroundColor: '#afce31',
         color: '#fff',
-        width: props.width,
+        width: '100%',
         ...props.disabled ? {
             opacity:0.5,
             cursor: 'default'} : {},

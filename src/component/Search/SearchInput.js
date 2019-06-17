@@ -20,8 +20,8 @@ class SearchInput extends Component{
     render(){
         return (
             <div style={{position:'absolute',top:'30px',left:'50px'}}>
-                <Input ref={this.inputRef}/>
-                <Button title="Search" onClick={this.handleInput}/>
+                <Input ref={this.inputRef} style={{width: '200px'}}/>
+                <Button title="Search" onClick={this.handleInput} style={{width: '70px'}}/>
             </div>
         )
     }

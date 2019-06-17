@@ -6,6 +6,7 @@ import Todolist from './component/Todolist/TodoApp'
 import Topics from './component/Topics'
 import Movies from './component/Movies/Movies'
 import Search from './component/Search/Search'
+import Reddit from './component/Reddit/RedditApp'
 
 const Nav = ()=>{
   const ulStyle={
@@ -28,9 +29,10 @@ const Nav = ()=>{
     <li style={listStyle}><Link style={astyle} to='/home'>home</Link></li>
     <li style={listStyle}><Link style={astyle} to='/reactlogo'>reactLogo</Link></li>
     <li style={listStyle}><Link style={astyle} to='/topics'>topics</Link></li>
-    <li style={listStyle}><Link style={astyle} to='/todolist'>todolist</Link></li>
+    <li style={listStyle}><Link style={astyle} to='/todolist/SHOW_ALL'>todolist</Link></li>
     <li style={listStyle}><Link style={astyle} to='/movies'>movies</Link></li>
     <li style={listStyle}><Link style={astyle} to='/search'>search</Link></li>
+    <li style={listStyle}><Link style={astyle} to='/reddit'>reddit</Link></li>
   </ul>
   )
 }
@@ -43,8 +45,9 @@ function AppRouter() {
             <Route path='/reactlogo' component={ReactLogo}/>
             <Route path='/topics' component={Topics}/>
             <Route path='/movies' component={Movies}/>
-            <Route path='/todolist' component={Todolist}/>
+            <Route path='/todolist/:filter' component={Todolist}/>
             <Route path='/search' component={Search}/>
+            <Route path='/reddit' component={Reddit}/>
           </Router>
         )
 }

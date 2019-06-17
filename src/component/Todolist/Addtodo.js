@@ -13,9 +13,9 @@ const Addtodo = ({dispatch})=>{
     }
     return (
         <div>
-            <Input ref={node => inputRef = node} />
+            <Input ref={node => inputRef = node} style={{width: '200px'}}/>
             <Suspense fallback={<div>Loading...</div>}>
-              <OtherComponent onClick={addTodo} title='Add'/>
+              <OtherComponent onClick={addTodo} title='Add' style={{width: '70px'}}/>
             </Suspense>
         </div>
     )
