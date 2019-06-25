@@ -1,23 +1,15 @@
-import React,{Component} from 'react'
+import React, {forwardRef} from 'react'
 import {css} from 'emotion'
 import stylesheet from './Input.stylesheet'
 import ControlBehavior from '../Behavior/ControlBehavior'
 
-export default class Input extends Component{
-    constructor(props){
-        super(props)
-        this.inputRef = React.createRef();
-    }
-    static defaultProps={
-        placeholder: 'Please input'
-    }
-    render(){
+const Input = (props, ref)=>{
         let {
             placeholder,
             onChange,
             value,
             ...otherProps
-        } = this.props
+        } = props;
         return (
             <ControlBehavior>
                 {
@@ -31,12 +23,13 @@ export default class Input extends Component{
                                 type='text'
                                 value={value}
                                 placeholder={placeholder}
-                                ref={this.inputRef}
+                                ref={ref}
                                 {...otherProps}
                                 >
                         </input>
                 }
             </ControlBehavior>
         )
-    }
 }
+
+export default forwardRef(Input)
