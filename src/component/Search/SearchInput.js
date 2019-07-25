@@ -13,7 +13,7 @@ class SearchInput extends Component{
         handleInput: PropTypes.func.isRequired
     }
     handleInput(){
-        const node=this.inputRef.current.inputRef.current;
+        const node=this.inputRef.current;
         node.focus()
         this.props.handleInput(node.value)
     }

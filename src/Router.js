@@ -7,6 +7,7 @@ import Topics from './component/Topics'
 import Movies from './component/Movies/Movies'
 import Search from './component/Search/Search'
 import Reddit from './component/Reddit/RedditApp'
+import Tabs from './component/Tabs/ShowTabs'
 
 const Nav = ()=>{
   const ulStyle={
@@ -33,6 +34,7 @@ const Nav = ()=>{
     <li style={listStyle}><Link style={astyle} to='/movies'>movies</Link></li>
     <li style={listStyle}><Link style={astyle} to='/search'>search</Link></li>
     <li style={listStyle}><Link style={astyle} to='/reddit'>reddit</Link></li>
+    <li style={listStyle}><Link style={astyle} to='/tabs'>tabs</Link></li>
   </ul>
   )
 }
@@ -48,6 +50,7 @@ function AppRouter() {
             <Route path='/todolist' component={Todolist}/>
             <Route path='/search' component={Search}/>
             <Route path='/reddit' component={Reddit}/>
+            <Route path='/tabs' component={Tabs}/>
           </Router>
         )
 }
