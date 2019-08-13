@@ -19,7 +19,8 @@ class NotificationBehavior extends Component{
 
     }
     handleExit=()=>{
-        console.info('exited')
+        const {onDismiss} = this.props;
+        onDismiss && onDismiss();
     }
     refContainer=(ref)=>{
         this.containerRef = ref

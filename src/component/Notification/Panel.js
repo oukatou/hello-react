@@ -69,20 +69,31 @@ class PanelBehavior extends Component{
     }
 }
 
-function PanelPresenter({children,title,maxHeight,containerRef,transitionState}){
+function PanelPresenter({children,title,maxHeight,containerRef,transitionState,handleClear}){
     const styles = stylesheet({transitionState})
-    return <div className={css(styles.panel)} ref={containerRef}>
-            <header className={css(styles.header)}>{title}</header>
+    return <div className={css(styles.panelContainer)}>
+            <div className={css(styles.caret)}>
+                <svg height="24" viewBox="0 0 24 24" width="24">
+                    <polygon className={css(styles.caretBorder)} points="0,12 12,0 24,12"></polygon>
+                    <polygon className={css(styles.caretBody)} points="2.5,12 12,2.5 21.5,12"></polygon>
+                </svg>
+            </div>
+            <div className={css(styles.panel)} ref={containerRef}>
+            <header className={css(styles.header)}>
+                {title}
+                <div className={css(styles.clear)} onClick={handleClear}>Clear all</div>
+            </header>
             <section role='list' style={{maxHeight}}>
                 {children}
             </section>
             </div>
+        </div>
 }
 PanelPresenter.defaultProps={
     title: 'Notification'
 }
 
-function Panel({title,isVisible,children}){
+function Panel({title,isVisible,children,handleClear}){
     return <PanelBehavior isVisible={isVisible}>
                 {
                     ({maxHeight,containerRef,transitionState})=>(
@@ -90,7 +101,8 @@ function Panel({title,isVisible,children}){
                             transitionState={transitionState} 
                             title={title}
                             maxHeight={maxHeight} 
-                            containerRef={containerRef}>
+                            containerRef={containerRef}
+                            handleClear={handleClear}>
                             {children}
                         </PanelPresenter>)
                 }

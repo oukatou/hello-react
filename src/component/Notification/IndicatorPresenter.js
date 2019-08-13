@@ -2,9 +2,10 @@ import React from 'react'
 import stylesheet from './stylesheet'
 import { css } from 'emotion';
 
-export default function IndicatorPrenseter({onClick,indicatorRef}){
-    const styles = stylesheet({})
+export default function IndicatorPrenseter({onClick,unreadCount,showCount,indicatorRef}){
+    const styles = stylesheet({showCount})
     return <div className={css(styles.indicator)} onClick={onClick} ref={indicatorRef}>
+            <div className={css(styles.count)}>{unreadCount}</div>
             <svg version="1.1" id="_x32_4x24_OUTLINED" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px"
                 y="0px" width="24px" height="24px" viewBox="4651 1106 24 24" enableBackground="new 4651 1106 24 24" xmlSpace="preserve">
                 <path d="M4669.931,1120.406l-0.112-0.05c-0.803-0.358-0.803-0.358-0.795-1.51l0.002-0.775c0.008-4.383-1.382-7.12-4.023-7.952V1109
