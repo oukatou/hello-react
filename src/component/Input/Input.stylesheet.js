@@ -4,7 +4,7 @@ export default function stylesheet(props){
         lineHeight:'30px',
         width: '100%',
         padding:'3px',
-        margin: '10px',
+        margin: '0 10px',
         border:'1px solid rgba(128,128,128,0.2)',
         borderRadius: '1px', 
         fontSize:'1em',

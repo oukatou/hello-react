@@ -1,7 +1,6 @@
 import React,{Component} from 'react'
 import Items from './Items'
 import SearchInput from './SearchInput'
-import WrapperPresenter from './WrapperPresenter'
 
 class Search extends Component{
     constructor(props){
@@ -18,10 +17,10 @@ class Search extends Component{
     }
     render(){
         return (
-            <WrapperPresenter>
+            <div>
                 <SearchInput handleInput={this.handleInput}/>
                 <Items filter={this.state.keyword}/>
-            </WrapperPresenter>
+            </div>
         )
     }
 }

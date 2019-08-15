@@ -2,6 +2,8 @@ import React,{Component} from 'react'
 import PropTypes from 'prop-types'
 import Button from '../Button/Button'
 import Input from '../Input/Input'
+import {css} from 'emotion'
+import stylesheet from './stylesheet'
 
 class SearchInput extends Component{
     constructor(props){
@@ -18,9 +20,10 @@ class SearchInput extends Component{
         this.props.handleInput(node.value)
     }
     render(){
+        const styles = stylesheet();
         return (
-            <div style={{position:'absolute',top:'30px',left:'50px'}}>
-                <Input ref={this.inputRef} style={{width: '200px'}}/>
+            <div className={css(styles.header)}>
+                <Input ref={this.inputRef}/>
                 <Button title="Search" onClick={this.handleInput} style={{width: '70px'}}/>
             </div>
         )

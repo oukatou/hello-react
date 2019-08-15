@@ -1,6 +1,9 @@
 import React,{Component} from 'react'
 import items from '../moviesData'
 import PropTypes from 'prop-types'
+import Item from './Item'
+import stylesheet from './stylesheet'
+import {css} from 'emotion'
 
 class Items extends Component{
     constructor(props){
@@ -10,22 +13,16 @@ class Items extends Component{
     static propTypes={
         filter:PropTypes.string.isRequired
     }
-
     render(){
+        const styles = stylesheet()
         return (
-            <div style={{position:'absolute',top:'100px',left:'50px'}}>
+            <ul className={css(styles.items)}>
                 {items.map((item,index)=>{
-                    const imgStyle={
-                        boxShadow: '0 0 4px #695f5f',
-                        transition: '0.8s',
-                        perspective:'600px',
-                        ...item.movieName.indexOf(this.props.filter)>-1 ? 
-                                      { ...imgStyle, width:'182px',opacity:1,transform:'scale3d(1,1,1)',margin: '8px'} : 
-                                      { ...imgStyle, width:0, opacity:0, transform:'scale3d(0,0,0)', } 
-                    }
-                    return <img style={ imgStyle } src={item.pic_url} key={index}/>
+                    return(
+                        <Item key={index} pic_url={item.pic_url} movieName={item.movieName} filter={this.props.filter}/>
+                        )
                 })}
-            </div>
+            </ul>
         )
     }
 }
