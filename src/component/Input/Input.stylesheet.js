@@ -2,7 +2,6 @@ export default function stylesheet(props){
     return {
         height:'20px',
         lineHeight:'30px',
-        width: '100%',
         padding:'3px',
         margin: '0 10px',
         border:'1px solid rgba(128,128,128,0.2)',

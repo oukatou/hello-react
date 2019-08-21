@@ -4,6 +4,8 @@ import Button from '../Button/Button'
 import Input from '../Input/Input'
 import {css} from 'emotion'
 import stylesheet from './stylesheet'
+import items from '../moviesData'
+import Downshift from 'downshift'
 
 class SearchInput extends Component{
     constructor(props){
@@ -22,10 +24,42 @@ class SearchInput extends Component{
     render(){
         const styles = stylesheet();
         return (
-            <div className={css(styles.header)}>
-                <Input ref={this.inputRef}/>
-                <Button title="Search" onClick={this.handleInput} style={{width: '70px'}}/>
-            </div>
+            <Downshift
+                onChange={selection=>selection && this.props.handleInput(selection.movieName)}
+                itemToString={item=>item.movieName}
+            >
+                {({
+                    inputValue,
+                    isOpen,
+                    getInputProps,
+                    getItemProps,
+                    getMenuProps,
+                    highlightedIndex
+                })=>(
+                    <div className={css(styles.header)}>
+                        <div>
+                            <Input ref={this.inputRef} {...getInputProps()}/>
+                            <ul {...getMenuProps()} className={css(styles.searchItems)}>
+                                {isOpen ? items.filter(item=>item.movieName.includes(inputValue)).map(
+                                    (item,index)=>(
+                                        <li {...getItemProps({
+                                            key:index,
+                                            item,
+                                            style:{backgroundColor: highlightedIndex == index ? 'gray' : ''}
+                                        }
+                                        )}
+                                        className={css(styles.searchItem)}
+                                        key={index}
+                                        >
+                                            {item.movieName}
+                                        </li>)
+                                ) : null}
+                            </ul>
+                        </div>
+                        <Button title="Search" onClick={this.handleInput} style={{width: '70px',height: '28px'}}/>
+                    </div>
+                )}
+            </Downshift>
         )
     }
 }

@@ -31,6 +31,14 @@ export default function stylesheet(exist){
         },
         img:{
             boxShadow: '0 0 4px #695f5f',
+        },
+        searchItem:{
+            listStyle: 'none'
+        },
+        searchItems:{
+            margin: '10px',
+            position: 'absolute',
+            zIndex: 1
         }
 
     }
