@@ -9,7 +9,7 @@ store.subscribe(()=>{
 })
 
 const RedditApp = () => (
-    <div className="container">
+    <div style={{width: '1000px'}}>
         <Provider store={store}>
             <AsyncApp />
         </Provider>

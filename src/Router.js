@@ -34,7 +34,7 @@ const Nav = ()=>{
   }
   return (
     <header className={css(header)}>
-      <Link className={css(astyle)} to='/reactlogo'>reactLogo</Link>
+      <Link className={css(astyle)} to='/reactlogo'>logo</Link>
       <Link className={css(astyle)} to='/topics'>topics</Link>
       <Link className={css(astyle)} to='/todolist'>todolist</Link>
       <Link className={css(astyle)} to='/movies'>movies</Link>

@@ -7,7 +7,7 @@ class Logo extends Component {
   render() {
     const {mouse,onMouseMove}=this.props
     return (
-      <div className="App" onMouseMove={onMouseMove} style={{height:'100vh'}}>
+      <div className="App" onMouseMove={onMouseMove}>
         <img src={logo} className="App-logo" alt="logo" style={{position:"absolute",left:mouse.x,top:mouse.y}}/>
       </div>
     );

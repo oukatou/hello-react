@@ -11,13 +11,18 @@ store.subscribe(()=>{
   console.log(store.getState())
 })
 const TodoApp = () => (
-    <div className="container">
+    <div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      padding: '20px'}}>
         <Provider store={store}>
             <Addtodo />
             <VisibleTodoList />
-            <FilterLink filter="SHOW_ALL">all</FilterLink>
-            <FilterLink filter="SHOW_ACTIVE">active</FilterLink>
-            <FilterLink filter="SHOW_COMPLETED">completed</FilterLink>
+            <div style={{display: 'flex',padding: '10px'}}>
+              <FilterLink filter="SHOW_ALL">all</FilterLink>
+              <FilterLink filter="SHOW_ACTIVE">active</FilterLink>
+              <FilterLink filter="SHOW_COMPLETED">completed</FilterLink>
+            </div>
         </Provider>
   </div>
 )

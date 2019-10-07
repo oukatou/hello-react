@@ -58,6 +58,7 @@
     "react-router-dom": "^5.0.0",
     "react-slick": "^0.24.0",
     "react-transition-group": "^4.1.1",
+    "react-virtualized": "^9.21.1",
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
@@ -140,6 +141,7 @@
     ]
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "^23.6.0",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.13.2",

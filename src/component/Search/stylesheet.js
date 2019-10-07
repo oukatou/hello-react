@@ -6,7 +6,6 @@ export default function stylesheet(exist){
             margin: '0 90px'
         },
         item:{
-            listStyle: 'none',
             position: 'relative',
             transition: '700ms',
             padding: '8px',
@@ -31,9 +30,6 @@ export default function stylesheet(exist){
         },
         img:{
             boxShadow: '0 0 4px #695f5f',
-        },
-        searchItem:{
-            listStyle: 'none'
         },
         searchItems:{
             margin: '10px',

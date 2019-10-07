@@ -11,9 +11,10 @@ export default function stylesheet(props){
         cursor: 'pointer',
         backgroundColor: '#afce31',
         color: '#fff',
-        width: '100%',
+        width: props.width ? props.width : '100%',
+        marginRight: '10px',
         ...props.disabled ? {
-            opacity:0.5,
+            opacity:0.7,
             cursor: 'default'} : {},
         ...props.hasHover ? {
             boxShadow: '0 0 2px #afce31'

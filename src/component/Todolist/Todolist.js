@@ -18,8 +18,13 @@ class Todolist extends Component {
         )
   }
   render() {
+    
     return (
-          <ul className='ul'>
+          <ul style={{
+            margin: '10px',
+            fontSize: '1rem',
+            color: '#555',
+            padding: '5px 0'}}>
              {this.getTodoItems()}
           </ul>
     );

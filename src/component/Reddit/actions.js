@@ -9,7 +9,8 @@ const receivePosts=(subreddit,json)=>{
 
 const fetchPosts=subreddit=>dispatch=>{
             dispatch({type: 'REQUEST_POST',subreddit})
-            fetch(`/r/${subreddit}.json`)     
+            //fetch(`/r/${subreddit}.json`)
+            fetch(`/${subreddit}.json`)
             .then(response=>response.json(),error => console.log('An error occurred.', error))
             .then(json=>dispatch(receivePosts(subreddit,json)))
                                         }

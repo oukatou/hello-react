@@ -48,7 +48,6 @@ class SearchInput extends Component{
                                             style:{backgroundColor: highlightedIndex == index ? 'gray' : ''}
                                         }
                                         )}
-                                        className={css(styles.searchItem)}
                                         key={index}
                                         >
                                             {item.movieName}

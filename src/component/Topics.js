@@ -3,7 +3,7 @@ import { Route, Link} from 'react-router-dom'
 
 function Topics({ match }) {
     return (
-      <div>
+      <div style={{width: '200px'}}>
         <h2>Topics</h2>
         <ul>
           <li>

@@ -67,10 +67,11 @@ export default function stylesheet(props){
         },
         panel:{
             width: '300px',
-            overflowY: 'scroll',
+            overflowY: 'auto',
             overflowX: 'hidden',
             borderRadius: '4px',
             boxShadow: '0 0 16px rgba(0,0,0,0.25)',
+            backgroundColor: '#ffffff'
         },
         notification:{
             margin: '12px'

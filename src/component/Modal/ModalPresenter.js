@@ -20,6 +20,7 @@ class ModalPresenter extends Component{
     }
     handleKeyup=(e)=>{
         if(this.props.open && e.keyCode==27){
+            e.stopPropagation()
             this.onClose()
         }
     }
