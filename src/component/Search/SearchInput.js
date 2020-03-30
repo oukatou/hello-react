@@ -12,11 +12,13 @@ class SearchInput extends Component{
         super(props);
         this.handleInput=this.handleInput.bind(this);
         this.inputRef = React.createRef();
+        this.buttonRef=React.createRef();
     }
     static propTypes={
         handleInput: PropTypes.func.isRequired
     }
     handleInput(){
+        console.log(this.buttonRef.current)
         const node=this.inputRef.current;
         node.focus()
         this.props.handleInput(node.value)
@@ -55,7 +57,7 @@ class SearchInput extends Component{
                                 ) : null}
                             </ul>
                         </div>
-                        <Button title="Search" onClick={this.handleInput} style={{width: '70px',height: '28px'}}/>
+                        <Button buttonRef={this.buttonRef} title="Search" onClick={this.handleInput} style={{width: '70px',height: '28px'}}/>
                     </div>
                 )}
             </Downshift>

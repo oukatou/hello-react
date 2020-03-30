@@ -1,6 +1,20 @@
 import React, {Component, Children} from 'react'
 import Tab from './Tab'
 import memoize from "lodash.memoize";
+
+/**
+ * 
+ * @typedef {JSX.Element} Tabb
+ * @typedef {Object} children
+ * 
+ * @typedef {Object} childrenn
+ * @property {string} abcd
+ * 
+ * @returns {Number|Array}
+ * @param {Tabb} children haizi
+ * @property {number} arg1
+ * @type {boolean} type
+ */
 function createTabs(children){
     return Children.toArray(children).reduce((result,child)=>{
         const {key, type, props={}} = child;
@@ -8,6 +22,7 @@ function createTabs(children){
         return result
     },[])
 }
+
 class Tabs extends Component {
     constructor(props){
         super(props)
@@ -25,7 +40,7 @@ class Tabs extends Component {
         return createTabs(this.props.children)
     }
     renderTab=({key, props}, index)=>{
-        const {label, render} = props
+        const {label,render} = props
         const payload={
             key,
             label,
@@ -36,7 +51,7 @@ class Tabs extends Component {
     }
     renderTabs(){
         return (
-            <ul style={{display: 'flex'}}>
+            <ul style={{display: 'flex',borderBottom: '1px solid #ccc'}}>
                 {this.getTabs().map(this.renderTab)}
             </ul>
         )

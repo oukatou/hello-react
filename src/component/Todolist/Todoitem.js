@@ -10,10 +10,11 @@ class Todoitem extends Component{
         return (
             <li style={{
                 textDecoration: completed ? 'line-through' : 'none'
-              }}>
+                }}
+                onClick = {this.delete.bind(this)} 
+              >
               { content }
-              <span onClick = {this.delete.bind(this)} 
-                    style={{
+              <span style={{
                         display: completed ? 'none' : 'inline'
               }}>   ×</span> 
             </li>

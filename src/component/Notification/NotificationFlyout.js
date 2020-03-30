@@ -73,6 +73,16 @@ class NotificationFlyoutBehavior extends Component{
     }
 }
 
+const createNotificationrenderer = (dismissNotification)=>{
+    // eslint-disable-next-line react/display-name
+    return notification => {
+        const {key,content,id,...otherProps} = notification;
+        return  <Notification key={key} {...otherProps} onDismiss={()=>dismissNotification(id)}>
+                    {content}
+                </Notification>
+    }
+}
+    
 export default function NotificationFlyout({children}){
     return <NotificationFlyoutBehavior notifications={children}>
             {
@@ -80,12 +90,7 @@ export default function NotificationFlyout({children}){
                     <div ref={wrapperRef}>
                         <IndicatorPresenter onClick={handleClick} unreadCount={unreadCount} showCount={showCount} indicatorRef={indicatorRef}/>
                         <Panel isVisible={open} handleClear={handleClear}>
-                            {notifications.map((value)=>{
-                                const {key,content,id,...otherProps} = value;
-                                return  <Notification key={key} {...otherProps} onDismiss={()=>dismissNotification(id)}>
-                                            {content}
-                                        </Notification>
-                            })}
+                            {notifications.map(createNotificationrenderer(dismissNotification))}
                         </Panel>
                     </div>)
             }

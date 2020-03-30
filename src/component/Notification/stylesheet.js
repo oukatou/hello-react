@@ -67,6 +67,7 @@ export default function stylesheet(props){
         },
         panel:{
             width: '300px',
+            maxHeight: '400px',
             overflowY: 'auto',
             overflowX: 'hidden',
             borderRadius: '4px',

@@ -1,6 +1,6 @@
 import React from 'react'
 import {css} from 'emotion'
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {BrowserRouter as Router,Switch, Route, NavLink, Redirect} from 'react-router-dom'
 import ReactLogo from './component/ReactLogo'
 import Todolist from './component/Todolist/TodoApp'
 import Topics from './component/Topics'
@@ -32,18 +32,23 @@ const Nav = ()=>{
     },
     transition: '.3s'
   }
+  const activeClass = {
+    backgroundColor: 'rgba(0,0,0,.7)',
+    fontWeight: '500',
+  }
+  const navs = ['reactlogo','topics','todolist','movies','search','reddit','tabs','notification','table','modal'];
   return (
     <header className={css(header)}>
-      <Link className={css(astyle)} to='/reactlogo'>logo</Link>
-      <Link className={css(astyle)} to='/topics'>topics</Link>
-      <Link className={css(astyle)} to='/todolist'>todolist</Link>
-      <Link className={css(astyle)} to='/movies'>movies</Link>
-      <Link className={css(astyle)} to='/search'>search</Link>
-      <Link className={css(astyle)} to='/reddit'>reddit</Link>
-      <Link className={css(astyle)} to='/tabs'>tabs</Link>
-      <Link className={css(astyle)} to='/notification'>notification</Link>
-      <Link className={css(astyle)} to='/table'>table</Link>
-      <Link className={css(astyle)} to='/modal'>modal</Link>
+      {navs.map(nav => <NavLink 
+                         replace
+                         key={nav} 
+                         className={css(astyle)} 
+                         activeClassName={css(activeClass)} 
+                         to={`/${nav}`}
+                       >
+                         {nav}
+                      </NavLink>)
+      }
     </header>
   )
 }
@@ -51,16 +56,20 @@ function AppRouter() {
         return(
           <Router>
             <Route path='/' component={Nav}/>
-            <Route path='/reactlogo' component={ReactLogo}/>
-            <Route path='/topics' component={Topics}/>
-            <Route path='/movies' component={Movies}/>
-            <Route path='/todolist' component={Todolist}/>
-            <Route path='/search' component={Search}/>
-            <Route path='/reddit' component={Reddit}/>
-            <Route path='/tabs' component={Tabs}/>
-            <Route path='/notification' component={Notification}/>
-            <Route path='/table' component={Table}/>
-            <Route path='/modal' component={Modal}/>
+            <Switch>
+              <Route exact strict path='/reactlogo' component={ReactLogo}/>
+              <Route path='/topics' component={Topics}/>
+              <Route path='/movies' component={Movies}/>
+              <Route path='/todolist' component={Todolist}/>
+              <Route path='/search' component={Search}/>
+              <Route path='/reddit' component={Reddit}/>
+              <Route path='/tabs' component={Tabs}/>
+              <Route path='/notification' component={Notification}/>
+              <Route path='/table' component={Table}/>
+              <Route path='/modal' component={Modal}/>
+              <Route path='/:s' render={(p)=><div>{p.location.pathname} is not exist</div> }/>
+              <Redirect to='/login' />
+            </Switch>
           </Router>
         )
 }

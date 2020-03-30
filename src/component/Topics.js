@@ -26,7 +26,7 @@ function Topics({ match }) {
       </div>
     );
   }
-  function Topic({ match }) {
-    return <h3>Requested Param: {match.params.topicId}</h3>;
+  function Topic(p) {
+    return <h3>Requested Param: {p.match.params.topicId}</h3>;
   }
   export default Topics

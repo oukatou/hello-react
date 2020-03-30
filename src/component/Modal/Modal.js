@@ -1,9 +1,37 @@
-import React from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {css,cx} from 'emotion' 
 import ModalPresenter from './ModalPresenter'
 import customClassNames from './createCustomClassNames'
 import stylesheet from './Modal.stylesheet'
+
+class ModalBehavior extends Component{
+    onClose=this.props.onClose
+    contentRef
+    refContent=contentRef => this.contentRef = contentRef
+    componentDidMount(){
+        this.contentRef.focus()
+    }
+    componentDidUpdate(){
+        this.contentRef.focus()
+    }
+    handleOverlayClick=(e)=>{
+        if(this.props.open && e.target == e.currentTarget){
+            this.onClose()
+        }
+    }
+    handleKeyup=(e)=>{
+        if(this.props.open && e.keyCode==27){
+            e.stopPropagation()
+            this.onClose()
+        }
+    }
+    render(){
+        const {children} = this.props;
+        const {refContent, handleOverlayClick, handleKeyup} = this;
+        return children(refContent, handleOverlayClick, handleKeyup)
+    }
+}
 
 function Modal(props){
     const {title,
@@ -21,17 +49,27 @@ function Modal(props){
     const styles = stylesheet({open})
 
     return <div className={className}>
-                <ModalPresenter 
-                    className={className} 
-                    title={title} 
-                    onClose={onClose} 
-                    open={open}
-                    headerChildren={headerChildren}
-                    backClosable={backClosable}
-                    keyboard={keyboard}
-                >
-                    {children}
-                </ModalPresenter>
+                <ModalBehavior open={open} onClose={onClose}>
+                    {(refContent, handleOverlayClick, handleKeyup)=>{
+                        return (
+                            <ModalPresenter 
+                                className={className} 
+                                title={title} 
+                                onClose={onClose} 
+                                open={open}
+                                headerChildren={headerChildren}
+                                backClosable={backClosable}
+                                keyboard={keyboard}
+                                refContent={refContent}
+                                handleOverlayClick={handleOverlayClick}
+                                handleKeyup={handleKeyup}   
+                            >
+                                {children}
+                            </ModalPresenter>
+                            )
+                        }
+                    }
+                </ModalBehavior>
                 {mask && <div className={cx(css(styles.mask),maskClassName)}></div>}
            </div>
 }

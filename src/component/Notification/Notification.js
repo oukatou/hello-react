@@ -12,7 +12,7 @@ class NotificationBehavior extends Component{
         this.setState({ height: `${this.containerRef.clientHeight}px` });
         window.requestAnimationFrame(() => {
             this.setState({
-                height: "",
+                height: '0px',
                 isVisible: false
             });
         });
