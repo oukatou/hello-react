@@ -23,7 +23,7 @@ class Item extends Component{
         const exist = movieName.indexOf(filter)>-1 ? true : false;
         const styles = stylesheet(exist)
         return (
-            <li
+            <div
                 className={css(styles.item)}
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave}
@@ -34,7 +34,7 @@ class Item extends Component{
                         state => <div className={css(styles.mask)} style={transitionStyles[state]}></div> 
                     }
                 </Transition>
-            </li>
+            </div>
                         
                 
         )

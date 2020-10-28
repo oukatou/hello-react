@@ -5,7 +5,7 @@ import rootReducer from './reducers'
 import Addtodo from './Addtodo'
 import VisibleTodoList from './containers/VisibleTodoList.js'
 import FilterLink from './containers/FilterLink'
-const store = createStore(rootReducer,window.__REDUX_DEVTOOLS_EXTENSION__())
+const store = createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 store.subscribe(()=>{
   console.log(store.getState())

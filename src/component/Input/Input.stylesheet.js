@@ -1,6 +1,6 @@
 export default function stylesheet(props){
     return {
-        height:'20px',
+        height:'25px',
         lineHeight:'30px',
         padding:'3px',
         margin: '0 10px',

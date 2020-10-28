@@ -16,13 +16,13 @@ class Items extends Component{
     render(){
         const styles = stylesheet()
         return (
-            <ul className={css(styles.items)}>
+            <div className={css(styles.items)}>
                 {items.map((item,index)=>{
                     return(
                         <Item key={index} pic_url={item.pic_url} movieName={item.movieName} filter={this.props.filter}/>
                         )
                 })}
-            </ul>
+            </div>
         )
     }
 }

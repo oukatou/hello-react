@@ -30,6 +30,7 @@ export default function stylesheet(exist){
         },
         img:{
             boxShadow: '0 0 4px #695f5f',
+            width: 170
         },
         searchItems:{
             margin: '10px',
